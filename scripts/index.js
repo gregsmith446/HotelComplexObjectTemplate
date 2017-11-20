@@ -19,6 +19,13 @@ var hotel = {
     name: "CareerDevs Innt"
 }
 
+function displayDetails(room) { //onclick event handler
+        console.log("hello");
+        console.log(room);
+        document.getElementById("price").innerHTML = hotel.rooms[room].price;
+        document.getElementById("available").innerHTML = hotel.rooms[room].available;
+    }
+
 // console.log(document.getElementById("label").nodeName);
 
 for (var i = 0; i < hotel.rooms.length; i++) {
@@ -29,7 +36,10 @@ for (var i = 0; i < hotel.rooms.length; i++) {
     radioBtn.setAttribute("name", "rooms");
     radioBtn.setAttribute("value", i); //value does not have to match the label
     radioBtn.setAttribute("id", "room" + i);
+    radioBtn.setAttribute("onclick", "displayDetails(" + i + ")");
+    // radioBtn.onclick = displayDetails(i);
     radioLbl.innerHTML = hotel.rooms[i].name;
+    
     // console.log("stop");
     document.getElementById("radialSection").appendChild(radioBtn); //must be done within the loop or else ERROR
     document.getElementById("radialSection").appendChild(radioLbl);
